@@ -417,3 +417,25 @@ footer {
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+a.btn-primary:hover,
+a.btn-outline:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .paso {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .paso-img img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .paso-texto {
+    margin-top: 10px;
+  }
+}
