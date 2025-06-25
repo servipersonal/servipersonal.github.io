@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -191,6 +195,25 @@ nav a:hover {
   background: #1ebd5b;
 }
 
+/* === BOTÓN FLOTANTE === */
+.whatsapp-fijo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-size: 28px;
+  padding: 14px 18px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-fijo:hover {
+  transform: scale(1.1);
+}
+
 /* === PIE DE PÁGINA === */
 footer {
   background: #000;
@@ -217,186 +240,45 @@ footer {
   }
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  nav {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border-radius: 10px;
-    padding: 10px;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .paso {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .paso-img,
-  .paso-texto {
-    width: 100%;
-  }
-}
-
-/* === PASO A PASO CON TEXTO E IMAGEN === */
+/* === CARRUSEL PASO A PASO === */
 .paso-carrusel {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 320px;
+  height: auto;
 }
 
-.paso {
+.carrusel .paso {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  padding: 30px;
-  animation: cambio 18s infinite;
-  position: absolute;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.carrusel .paso img {
+  max-width: 300px;
   width: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.paso:nth-child(1) { animation-delay: 0s; }
-.paso:nth-child(2) { animation-delay: 6s; }
-.paso:nth-child(3) { animation-delay: 12s; }
-
-@keyframes cambio {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  30% { opacity: 1; }
-  35% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-.paso-img {
+.carrusel .texto {
   flex: 1;
 }
 
-.paso-img img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+.carrusel h3 {
+  margin-bottom: 0.5rem;
+  color: #00ffcc;
 }
 
-.paso-texto {
-  flex: 1;
-  text-align: left;
-}
-
-.paso-texto h3 {
-  font-size: 1.5rem;
-  color: #39ff14;
-  margin-bottom: 10px;
-}
-
-.paso-texto p {
-  color: #ccc;
-  font-size: 1rem;
-}
-.paso-img img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-}
-/* === VERSIÓN MÓVIL (RESPONSIVE) === */
-@media (max-width: 768px) {
-  /* NAV */
-  nav {
-    display: none;
-    flex-direction: column;
-    background: #111;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    border-radius: 10px;
-    padding: 10px;
-    z-index: 1000;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  /* HERO */
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-
-  /* CARRUSEL */
-  .paso {
-    flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .paso-img,
-  .paso-texto {
-    width: 100%;
-  }
-
-  .paso-carrusel {
-    height: auto;
-  }
-
-  /* BOTONES */
-  .btn-primary,
-  .btn-outline {
-    width: 90%;
-    text-align: center;
-  }
-
-  /* FOOTER */
-  footer {
-    padding: 40px 20px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-
-  .whatsapp-btn {
-    width: 90%;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-  }
-}
 /* === HEADER TRANSPARENTE Y STICKY === */
 #mainHeader {
   position: fixed;
@@ -417,25 +299,90 @@ footer {
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+
+/* === BOTONES ANIMADOS === */
 a.btn-primary:hover,
 a.btn-outline:hover {
   transform: scale(1.05);
   transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
+/* === RESPONSIVE (MÓVIL) === */
 @media (max-width: 768px) {
-  .paso {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #111;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 90%;
+    text-align: center;
+  }
+
+  footer {
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .whatsapp-btn {
+    width: 90%;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  /* CARRUSEL EN MÓVIL */
+  .carrusel .paso {
     flex-direction: column;
     text-align: center;
   }
 
-  .paso-img img {
-    width: 100%;
-    max-width: 300px;
+  .carrusel .paso img {
+    max-width: 100%;
     margin: 0 auto;
   }
 
-  .paso-texto {
+  .carrusel .texto {
     margin-top: 10px;
+  }
+
+  #como-funciona {
+    margin-bottom: 80px;
+  }
+
+  .whatsapp-fijo {
+    bottom: 80px;
   }
 }
