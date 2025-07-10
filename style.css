@@ -56,10 +56,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.85);
-  position: sticky;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.329);
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1000;
   backdrop-filter: blur(6px);
 }
@@ -113,7 +114,7 @@ nav a:hover {
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #ccc;
+  color: #fff;
 }
 
 .hero-buttons .btn-primary,
@@ -138,10 +139,23 @@ nav a:hover {
   background: transparent;
 }
 
+.btn-mediafire {
+  background: #2ecc71;
+}
+
 .btn-primary:hover,
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-mediafire:hover {
   background: #2ecc71;
   color: black;
+  transform: scale(1.05);
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1.05); }
 }
 
 /* === SECCIONES GENERALES === */
@@ -188,11 +202,12 @@ nav a:hover {
   font-weight: bold;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .whatsapp-btn:hover {
   background: #1ebd5b;
+  transform: scale(1.05);
 }
 
 /* === BOTÓN FLOTANTE === */
@@ -241,25 +256,30 @@ footer {
 }
 
 /* === CARRUSEL PASO A PASO === */
-.paso-carrusel {
+.carrusel {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: auto;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.carrusel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carrusel .paso {
+  flex: 0 0 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  margin: 2rem 0;
   padding: 1rem;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
 }
 
 .carrusel .paso img {
@@ -279,32 +299,31 @@ footer {
   color: #00ffcc;
 }
 
-/* === HEADER TRANSPARENTE Y STICKY === */
-#mainHeader {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  padding: 10px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: transparent;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+.carrusel-prev, .carrusel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #39ff14;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  transition: background 0.3s ease;
 }
 
-#mainHeader.scrolled {
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+.carrusel-prev {
+  left: 10px;
 }
 
-/* === BOTONES ANIMADOS === */
-a.btn-primary:hover,
-a.btn-outline:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s ease, background-color 0.3s ease;
+.carrusel-next {
+  right: 10px;
+}
+
+.carrusel-prev:hover, .carrusel-next:hover {
+  background: #39ff14;
+  color: #000;
 }
 
 /* === RESPONSIVE (MÓVIL) === */
@@ -345,7 +364,8 @@ a.btn-outline:hover {
   }
 
   .btn-primary,
-  .btn-outline {
+  .btn-outline,
+  .btn-mediafire {
     width: 90%;
     text-align: center;
   }
@@ -363,7 +383,6 @@ a.btn-outline:hover {
     text-align: center;
   }
 
-  /* CARRUSEL EN MÓVIL */
   .carrusel .paso {
     flex-direction: column;
     text-align: center;

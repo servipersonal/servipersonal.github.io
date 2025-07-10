@@ -1,150 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeByNeyder - Generador de Códigos QR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
 
-        <title>Generador de Códigos QR Gratis | CodeByNeyder</title>
-        <meta name="description" content="CodeByNeyder es un generador de códigos QR rápido, gratuito y personalizable. Ideal para docentes, estudiantes y emprendedores. Incluye logo opcional.">
-        <meta name="keywords" content="generador QR, código QR, QR con logo, QR personalizado, descargar QR, app QR gratis, herramientas digitales">
-        <meta name="author" content="Neyder Daniel Garzón Jiménez">
-        <meta name="robots" content="index, follow" />
-
-        <link rel="stylesheet" href="style.css" />
-        <link rel="icon" href="image/logo.ico" type="image/x-icon" />
-        <script src="https://kit.fontawesome.com/a3c31f9269.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <!-- LOADER -->
-        <div id="loader">
-            <div class="spinner"></div>
+    <!-- Encabezado -->
+    <header id="mainHeader">
+        <div class="logo">
+            <img src="assets/banner.png" alt="Logo CodeByNeyder">
         </div>
+        <nav>
+            <a href="#home">Inicio</a>
+            <a href="#como-funciona">Cómo se usa</a>
+            <a href="#contacto">Contáctenos</a>
+        </nav>
+        <button class="menu-toggle">☰</button>
+    </header>
 
-        <!-- ENCABEZADO -->
-        <header id="mainHeader">
-            <div class="logo">
-                <img src="assets/banner.png" alt="Logo CodeByNeyder" />
+    <!-- Sección Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>CodeByNeyder</h1>
+            <p>Automatiza, crea y comparte tus propias herramientas digitales.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Descargar EXE (v1)</a>
+                <a href="https://www.mediafire.com/file/dkwbni4ghaycmzd/Instalador_QRGenerator_2.0.exe/file" target="_blank" rel="noopener noreferrer" class="btn-primary btn-mediafire">Descargar QR v2</a>
+                <a href="#about" class="btn-outline">Sobre mí</a>
             </div>
-      
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav id="navMenu">
-                <a href="#inicio">Inicio</a>
-                <a href="#como-se-usa">Cómo se usa</a>
-                <a href="#contacto">Contáctenos</a>
-            </nav>
-        </header>
+        </div>
+    </section>
 
-        <!-- HERO MODERNO -->
-        <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1>CodeByNeyder</h1>
-                <p>Automatiza, crea y comparte tus propias herramientas digitales.</p>
-                <div class="hero-buttons">
-                    <a href="https://www.mediafire.com/file/1uydz8yoypsud3h/Instalador_CodeByNeyder.rar/file" class="btn-primary">
-                        <i class="fas fa-download"></i> Descargar EXE
-                    </a>
-                    <a href="#sobremi" class="btn-outline">
-                        <i class="fas fa-user"></i> Sobre mí
-                    </a>
+    <!-- Sección Generador QR -->
+    <section class="section">
+        <h2>Generador de Códigos QR</h2>
+        <p>Esta aplicación permite crear códigos QR de forma rápida y sencilla. Puedes incluir un logo personalizado si lo deseas. Es ideal para docentes, estudiantes y emprendedores. La versión 2.0 incluye mejoras en rendimiento y nuevas funcionalidades.</p>
+    </section>
+
+    <!-- Sección Cómo Usar (Carrusel) -->
+    <section id="como-funciona" class="section">
+        <h2>Cómo usar el Generador QR</h2>
+        <div class="carrusel">
+            <div class="carrusel-container">
+                <div class="paso" data-index="0">
+                    <img src="assets/imagen1.png" alt="Paso 1: Abrir la aplicación">
+                    <div class="texto">
+                        <h3>Paso 1: Abrir la aplicación</h3>
+                        <p>Inicia el Generador QR en tu computador. Verás una interfaz sencilla para empezar a crear tus códigos.</p>
+                    </div>
+                </div>
+                <div class="paso" data-index="1">
+                    <img src="assets/imagen2.png" alt="Paso 2: Escribir el texto o enlace">
+                    <div class="texto">
+                        <h3>Paso 2: Escribir el texto o enlace</h3>
+                        <p>Escribe el texto o la URL que quieres convertir en un código QR. Puedes personalizar con tu logo si lo deseas.</p>
+                    </div>
+                </div>
+                <div class="paso" data-index="2">
+                    <img src="assets/imagen3.png" alt="Paso 3: Generar y guardar">
+                    <div class="texto">
+                        <h3>Paso 3: Generar y guardar</h3>
+                        <p>Haz clic en generar y guarda tu código QR para imprimirlo o compartirlo en redes sociales.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+            <button class="carrusel-prev">◄</button>
+            <button class="carrusel-next">►</button>
+        </div>
+    </section>
 
-        <!-- SECCIÓN SOBRE EL GENERADOR -->
-        <section class="section">
-            <h2>Generador de Códigos QR</h2>
-            <p>
-                Esta aplicación permite crear códigos QR de forma rápida y sencilla.
-                Puedes incluir un logo personalizado si lo deseas. Es ideal para docentes,
-                estudiantes y emprendedores. Esta versión está enfocada en generación simple
-                y con logotipo.
-            </p>
-        </section>
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section">
+        <h2>Contáctenos</h2>
+        <a href="https://wa.me/+573144421617" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">Escríbenos por WhatsApp</a>
+    </section>
 
-    
-        <!-- SECCIÓN: CÓMO FUNCIONA -->
-        <section id="como-funciona" class="section carrusel">
-            <h2>Cómo usar el Generador QR</h2>
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/+573144421617" class="whatsapp-fijo" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-            <div class="paso">
-                <img src="assets/imagen1.png" alt="Paso 1: Abrir" />
-                <div class="texto">
-                    <h3>Paso 1: Abrir la aplicación</h3>
-                    <p>Inicia el Generador QR en tu computador. Verás una interfaz sencilla para empezar a crear tus códigos.</p>
-                </div>
-            </div>
+    <!-- Pie de Página -->
+    <footer>
+        <p>© 2025 CodeByNeyder. Proyecto creado por Neyder Daniel Garzón Jiménez.</p>
+    </footer>
 
-            <div class="paso">
-                <img src="assets/imagen2.png" alt="Paso 2: Escribir texto" />
-                <div class="texto">
-                    <h3>Paso 2: Escribir el texto o enlace</h3>
-                    <p>Escribe el texto o la URL que quieres convertir en un código QR. Puedes personalizar con tu logo si lo deseas.</p>
-                </div>
-            </div>
+    <script>
+        // Script para el loader
+        window.addEventListener('load', () => {
+            document.getElementById('loader').style.display = 'none';
+        });
 
-            <div class="paso">
-                <img src="assets/imagen3.png" alt="Paso 3: Generar QR" />
-                <div class="texto">
-                    <h3>Paso 3: Generar y guardar</h3>
-                    <p>Haz clic en generar y guarda tu código QR para imprimirlo o compartirlo en redes sociales.</p>
-                </div>
-            </div>
-        </section>
-
-
-
-
-        <!-- CONTACTO -->
-        <section id="contacto" class="section">
-            <h2>Contáctenos</h2>
-            <a href="https://wa.me/573144421617" target="_blank" class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
-            </a>
-        </section>
-
-        <!-- PIE DE PÁGINA -->
-        <footer>
-            <p>© 2025 CodeByNeyder. Proyecto creado por Neyder Daniel Garzón Jiménez.</p>
-        </footer>
-
-        <script>
-            // Animaciones al hacer scroll
-            const sections = document.querySelectorAll('.section');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            sections.forEach(section => observer.observe(section));
-
-            // Loader y menú
-            window.addEventListener("load", () => {
-                document.getElementById("loader").style.display = "none";
-                const menuToggle = document.getElementById("menuToggle");
-                const navMenu = document.getElementById("navMenu");
-                menuToggle.addEventListener("click", () => {
-                    navMenu.classList.toggle("show");
-                    menuToggle.classList.toggle("open");
-                });
-            });
-        </script>
-        <script>
+        // Script para el header sticky
+        window.addEventListener('scroll', () => {
             const header = document.getElementById('mainHeader');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        </script>
-    
+        // Script para el menú móvil
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('nav').classList.toggle('show');
+        });
 
+        // Script para el carrusel
+        const carruselContainer = document.querySelector('.carrusel-container');
+        const pasos = document.querySelectorAll('.paso');
+        const prevBtn = document.querySelector('.carrusel-prev');
+        const nextBtn = document.querySelector('.carrusel-next');
+        let currentIndex = 0;
 
-    </body>
+        function showSlide(index) {
+            if (index >= pasos.length) index = 0;
+            if (index < 0) index = pasos.length - 1;
+            carruselContainer.style.transform = `translateX(-${index * 100}%)`;
+            currentIndex = index;
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
+
+        // Auto-avance del carrusel cada 5 segundos
+        setInterval(() => showSlide(currentIndex + 1), 5000);
+    </script>
+</body>
 </html>
